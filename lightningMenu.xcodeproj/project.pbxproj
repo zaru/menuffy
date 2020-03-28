@@ -9,18 +9,18 @@
 /* Begin PBXBuildFile section */
 		57350D04242EDBB100B5E977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57350D03242EDBB100B5E977 /* AppDelegate.swift */; };
 		57350D06242EDBB200B5E977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57350D05242EDBB200B5E977 /* Assets.xcassets */; };
-		57350D09242EDBB200B5E977 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57350D07242EDBB200B5E977 /* MainMenu.xib */; };
 		57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
+		57DB241D242EEEB300894FA3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DB241C242EEEB300894FA3 /* Storyboard.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		57350D00242EDBB100B5E977 /* lightningMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lightningMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57350D03242EDBB100B5E977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57350D05242EDBB200B5E977 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		57350D08242EDBB200B5E977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		57350D0A242EDBB200B5E977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lightningMenu.entitlements; sourceTree = "<group>"; };
 		57DB2415242EE0AA00894FA3 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
+		57DB241C242EEEB300894FA3 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +57,9 @@
 			children = (
 				57350D03242EDBB100B5E977 /* AppDelegate.swift */,
 				57350D05242EDBB200B5E977 /* Assets.xcassets */,
-				57350D07242EDBB200B5E977 /* MainMenu.xib */,
 				57350D0A242EDBB200B5E977 /* Info.plist */,
 				57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */,
+				57DB241C242EEEB300894FA3 /* Storyboard.storyboard */,
 			);
 			path = lightningMenu;
 			sourceTree = "<group>";
@@ -132,7 +132,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				57350D06242EDBB200B5E977 /* Assets.xcassets in Resources */,
-				57350D09242EDBB200B5E977 /* MainMenu.xib in Resources */,
+				57DB241D242EEEB300894FA3 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,17 +169,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		57350D07242EDBB200B5E977 /* MainMenu.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				57350D08242EDBB200B5E977 /* Base */,
-			);
-			name = MainMenu.xib;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		57350D0C242EDBB200B5E977 /* Debug */ = {
