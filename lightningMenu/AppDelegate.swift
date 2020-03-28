@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Magnet
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -20,10 +21,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusImage")
         }
+
+        if let keyCombo = KeyCombo(keyCode: 46, carbonModifiers: 4352) {
+            let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
+            hotKey.register()
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        // Insert code here to tear down your application
+        HotKeyCenter.shared.unregisterAll()
+    }
+    
+    @objc func openMenu() {
+        print("key press cmd ctrl m")
     }
 
 
