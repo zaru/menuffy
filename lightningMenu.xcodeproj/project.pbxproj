@@ -10,6 +10,7 @@
 		57350D04242EDBB100B5E977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57350D03242EDBB100B5E977 /* AppDelegate.swift */; };
 		57350D06242EDBB200B5E977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57350D05242EDBB200B5E977 /* Assets.xcassets */; };
 		57350D09242EDBB200B5E977 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57350D07242EDBB200B5E977 /* MainMenu.xib */; };
+		57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		57350D08242EDBB200B5E977 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		57350D0A242EDBB200B5E977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lightningMenu.entitlements; sourceTree = "<group>"; };
+		57DB2415242EE0AA00894FA3 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -37,6 +40,7 @@
 			children = (
 				57350D02242EDBB100B5E977 /* lightningMenu */,
 				57350D01242EDBB100B5E977 /* Products */,
+				57DB2414242EE0AA00894FA3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,6 +64,14 @@
 			path = lightningMenu;
 			sourceTree = "<group>";
 		};
+		57DB2414242EE0AA00894FA3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				57DB2415242EE0AA00894FA3 /* Magnet.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -70,6 +82,7 @@
 				57350CFC242EDBB100B5E977 /* Sources */,
 				57350CFD242EDBB100B5E977 /* Frameworks */,
 				57350CFE242EDBB100B5E977 /* Resources */,
+				57DB2417242EE0E500894FA3 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -124,6 +137,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57DB2417242EE0E500894FA3 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		57350CFC242EDBB100B5E977 /* Sources */ = {
@@ -271,6 +305,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TH5EXGHJTG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = lightningMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -290,6 +328,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = TH5EXGHJTG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = lightningMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
