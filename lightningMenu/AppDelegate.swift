@@ -28,6 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -36,12 +37,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openMenu() {
         print("key press cmd ctrl m")
+        let app = activeApp()
+        let pid = app.processIdentifier
         
         menuWindow = MenuWindow()
         let menuView = MenuView()
         menuWindow.contentView?.addSubview(menuView)
-        menuView.makeMenu()
-
+        
+        menuView.makeMenu(pid)
+    }
+    
+    func activeApp() -> NSRunningApplication {
+        let runningApps = NSWorkspace.shared.runningApplications
+        let activeApp = runningApps.filter{ $0.isActive }[0]
+        return activeApp
     }
 
     // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
