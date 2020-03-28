@@ -16,6 +16,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
+    var menuWindow: NSWindow!
+
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -34,8 +36,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     @objc func openMenu() {
         print("key press cmd ctrl m")
+        
+        menuWindow = MenuWindow()
+        let menuView = MenuView()
+        menuWindow.contentView?.addSubview(menuView)
+        menuView.makeMenu()
+
     }
 
+    // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
+    @objc func hogeSelected(sender: AnyObject) {
+        NSLog("hoge")
+    }
 
 }
 
