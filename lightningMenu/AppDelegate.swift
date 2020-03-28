@@ -12,10 +12,14 @@ import Cocoa
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
+    
+    var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        if let button = statusItem.button {
+            button.image = NSImage(named: "StatusImage")
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
