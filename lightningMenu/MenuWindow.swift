@@ -15,7 +15,11 @@ class MenuWindow : NSWindow {
                   backing backingStoreType: NSWindow.BackingStoreType,
                   defer flag: Bool) {
 
-        super.init(contentRect: NSZeroRect,
+        let screenFrame = NSScreen.main!.frame
+        let x = screenFrame.width / 2 - 100
+        let y = screenFrame.height / 2 + 100
+
+        super.init(contentRect: NSMakeRect(x, y, 200, 50),
                    styleMask: [.borderless],
                    backing: .buffered,
                    defer: false)
@@ -26,5 +30,7 @@ class MenuWindow : NSWindow {
         self.makeKeyAndOrderFront(nil)
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         self.level = NSWindow.Level.floating
+        self.isMovableByWindowBackground = true
+        
     }
 }

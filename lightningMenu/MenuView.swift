@@ -30,7 +30,7 @@ class MenuView: NSView {
         let items = getMenuItems(pid)
         buildAllMenu(items)
         
-        appMenu.popUp(positioning: nil, at: NSMakePoint(550, 550), in: self)
+        appMenu.popUp(positioning: nil, at: NSZeroPoint, in: self)
     }
     
     func getMenuItems(_ pid: pid_t) -> [AXUIElement] {

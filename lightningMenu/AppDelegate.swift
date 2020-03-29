@@ -43,6 +43,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if menuWindow == nil {
             menuWindow = MenuWindow()
+
+            let searchView = SearchView()
+            menuWindow.contentView?.addSubview(searchView)
+            
             menuView = MenuView()
             menuWindow.contentView?.addSubview(menuView)
         }
