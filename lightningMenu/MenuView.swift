@@ -11,8 +11,13 @@ import Cocoa
 class MenuView: NSView {
     
     var appMenu: NSMenu = NSMenu()
-    var allElements: [AXUIElement] = []
+    private (set) public var allElements: [AXUIElement] = []
     var menuIndex: Int = 0
+
+    func increment(_ element: AXUIElement) {
+        allElements.append(element)
+        menuIndex += 1
+    }
     
     func getAllElements() -> [AXUIElement] {
         return allElements
@@ -84,8 +89,7 @@ class MenuView: NSView {
             } else {
                 let subMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
                 subMenuItem.tag = menuIndex
-                menuIndex += 1
-                allElements.append(element)
+                increment(element)
                 subMenu.addItem(subMenuItem)
                 
                 let lastMenuItems = getChildren(element)
@@ -117,8 +121,7 @@ class MenuView: NSView {
             } else if enabled {
                 let lastMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
                 lastMenuItem.tag = menuIndex
-                menuIndex += 1
-                allElements.append(element)
+                increment(element)
                 lastMenu.addItem(lastMenuItem)
             } else {
                 let lastMenuItem = NSMenuItem(title: title, action: nil, keyEquivalent: "")

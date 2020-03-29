@@ -56,7 +56,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
     @objc func pressMenu(sender: NSMenuItem) {
-        AXUIElementPerformAction(menuView.getAllElements()[sender.tag], kAXPressAction as CFString)
+        AXUIElementPerformAction(menuView.allElements[sender.tag], kAXPressAction as CFString)
     }
 
 }
