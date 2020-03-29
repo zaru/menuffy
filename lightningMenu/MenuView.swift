@@ -67,18 +67,41 @@ class MenuView: NSView {
         for element in subMenuItemsElements {
             let title = getTitle(element)
             print("submenu item: \(title)")
+            
             if title == "" {
                 subMenu.addItem(NSMenuItem.separator())
             } else {
-                let showPrefsMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
-                subMenu.addItem(showPrefsMenuItem)
+                let subMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
+                subMenu.addItem(subMenuItem)
+                
+                let lastMenuItems = getChildren(element)
+                if lastMenuItems.count > 0 {
+                    buildLastMenu(subElement: lastMenuItems[0], subMenuItesm: subMenuItem)
+                }
+            }
+            
+        }
+    }
+    
+    func buildLastMenu(subElement: AXUIElement, subMenuItesm: NSMenuItem) {
+        let lastMenu = NSMenu()
+        subMenuItesm.submenu = lastMenu
+        
+        let lastElements = getChildren(subElement)
+        for element in lastElements {
+            let title = getTitle(element)
+            print("lastmenu item: \(title)")
+            if title == "" {
+                lastMenu.addItem(NSMenuItem.separator())
+            } else {
+                let lastMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
+                lastMenu.addItem(lastMenuItem)
             }
         }
     }
     
     func getChildren(_ element: AXUIElement) -> [AXUIElement] {
-        var children: CFTypeRef?
-        AXUIElementCopyAttributeValue(element, kAXChildrenAttribute as CFString, &children)
+        let children = getAttribute(element: element, name: kAXChildrenAttribute)
         if children == nil {
             return []
         }
@@ -86,12 +109,17 @@ class MenuView: NSView {
     }
     
     func getTitle(_ element: AXUIElement) -> String {
-        var title: CFTypeRef?
-        AXUIElementCopyAttributeValue(element, kAXTitleAttribute as CFString, &title)
+        let title = getAttribute(element: element, name: kAXTitleAttribute)
         if title == nil {
             return ""
         }
         return title as! String
+    }
+    
+    func getAttribute(element: AXUIElement, name: String) -> CFTypeRef? {
+        var value: CFTypeRef? = nil
+        AXUIElementCopyAttributeValue(element, name as CFString, &value)
+        return value
     }
     
     @objc func hogeSelected(sender: AnyObject) {
