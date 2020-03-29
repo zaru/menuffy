@@ -11,6 +11,12 @@ import Cocoa
 class MenuView: NSView {
     
     var appMenu: NSMenu = NSMenu()
+    var allElements: [AXUIElement] = []
+    var menuIndex: Int = 0
+    
+    func getAllElements() -> [AXUIElement] {
+        return allElements
+    }
     
     func makeMenu(_ pid: pid_t) {
         let items = getMenuItems(pid)
@@ -76,7 +82,10 @@ class MenuView: NSView {
             if title == "" {
                 subMenu.addItem(NSMenuItem.separator())
             } else {
-                let subMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
+                let subMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
+                subMenuItem.tag = menuIndex
+                menuIndex += 1
+                allElements.append(element)
                 subMenu.addItem(subMenuItem)
                 
                 let lastMenuItems = getChildren(element)
@@ -106,7 +115,10 @@ class MenuView: NSView {
             if title == "" {
                 lastMenu.addItem(NSMenuItem.separator())
             } else if enabled {
-                let lastMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
+                let lastMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
+                lastMenuItem.tag = menuIndex
+                menuIndex += 1
+                allElements.append(element)
                 lastMenu.addItem(lastMenuItem)
             } else {
                 let lastMenuItem = NSMenuItem(title: title, action: nil, keyEquivalent: "")
@@ -143,9 +155,5 @@ class MenuView: NSView {
         var value: CFTypeRef? = nil
         AXUIElementCopyAttributeValue(element, name as CFString, &value)
         return value
-    }
-    
-    @objc func hogeSelected(sender: AnyObject) {
-        NSLog("hoge")
     }
 }

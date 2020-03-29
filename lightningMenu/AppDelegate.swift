@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     var menuWindow: NSWindow!
+    var menuView: MenuView!
 
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
@@ -41,7 +42,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let pid = app.processIdentifier
         
         menuWindow = MenuWindow()
-        let menuView = MenuView()
+        menuView = MenuView()
         menuWindow.contentView?.addSubview(menuView)
         
         menuView.makeMenu(pid)
@@ -54,8 +55,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
-    @objc func hogeSelected(sender: AnyObject) {
-        NSLog("hoge")
+    @objc func pressMenu(sender: NSMenuItem) {
+        AXUIElementPerformAction(menuView.getAllElements()[sender.tag], kAXPressAction as CFString)
     }
 
 }
