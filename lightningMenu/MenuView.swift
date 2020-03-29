@@ -65,8 +65,13 @@ class MenuView: NSView {
     
     func buildSubMenuItems(subMenuItemsElements: [AXUIElement], subMenu: NSMenu) {
         for element in subMenuItemsElements {
+            let position = getAttribute(element: element, name: kAXPositionAttribute)
             let title = getTitle(element)
-            print("submenu item: \(title)")
+            print("submenu item: \(title) : \(position)")
+            
+            if position == nil {
+                continue
+            }
             
             if title == "" {
                 subMenu.addItem(NSMenuItem.separator())
@@ -89,12 +94,22 @@ class MenuView: NSView {
         
         let lastElements = getChildren(subElement)
         for element in lastElements {
+            let position = getAttribute(element: element, name: kAXPositionAttribute)
+            let enabled = getEnabled(element)
             let title = getTitle(element)
-            print("lastmenu item: \(title)")
+            print("lastmenu item: \(title) : \(position)")
+
+            if position == nil {
+                continue
+            }
+            
             if title == "" {
                 lastMenu.addItem(NSMenuItem.separator())
-            } else {
+            } else if enabled {
                 let lastMenuItem = NSMenuItem(title: title, action: #selector(hogeSelected), keyEquivalent: "")
+                lastMenu.addItem(lastMenuItem)
+            } else {
+                let lastMenuItem = NSMenuItem(title: title, action: nil, keyEquivalent: "")
                 lastMenu.addItem(lastMenuItem)
             }
         }
@@ -114,6 +129,14 @@ class MenuView: NSView {
             return ""
         }
         return title as! String
+    }
+    
+    func getEnabled(_ element: AXUIElement) -> Bool {
+        let enabled = getAttribute(element: element, name: kAXEnabledAttribute)
+        if enabled == nil {
+            return false
+        }
+        return enabled as! Bool
     }
     
     func getAttribute(element: AXUIElement, name: String) -> CFTypeRef? {
