@@ -10,7 +10,7 @@ import Cocoa
 
 class MenuView: NSView {
     
-    var appMenu: NSMenu = NSMenu()
+    var appMenu: NSMenu!
     private (set) public var allElements: [AXUIElement] = []
     var menuIndex: Int = 0
 
@@ -19,11 +19,14 @@ class MenuView: NSView {
         menuIndex += 1
     }
     
-    func getAllElements() -> [AXUIElement] {
-        return allElements
+    func reset() {
+        appMenu = NSMenu()
+        allElements = []
+        menuIndex = 0
     }
     
     func makeMenu(_ pid: pid_t) {
+        reset()
         let items = getMenuItems(pid)
         buildAllMenu(items)
         
@@ -54,7 +57,7 @@ class MenuView: NSView {
             if title == "Apple" {
                 title = ""
             }
-            print("menu item: \(title)")
+//            print("menu item: \(title)")
             
             let item = NSMenuItem(title: title, action: nil, keyEquivalent: "")
             appMenu.addItem(item)
@@ -78,7 +81,7 @@ class MenuView: NSView {
         for element in subMenuItemsElements {
             let position = getAttribute(element: element, name: kAXPositionAttribute)
             let title = getTitle(element)
-            print("submenu item: \(title) : \(position)")
+//            print("submenu item: \(title) : \(position)")
             
             if position == nil {
                 continue
@@ -110,7 +113,7 @@ class MenuView: NSView {
             let position = getAttribute(element: element, name: kAXPositionAttribute)
             let enabled = getEnabled(element)
             let title = getTitle(element)
-            print("lastmenu item: \(title) : \(position)")
+//            print("lastmenu item: \(title) : \(position)")
 
             if position == nil {
                 continue

@@ -41,10 +41,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let app = activeApp()
         let pid = app.processIdentifier
         
-        menuWindow = MenuWindow()
-        menuView = MenuView()
-        menuWindow.contentView?.addSubview(menuView)
-        
+        if menuWindow == nil {
+            menuWindow = MenuWindow()
+            menuView = MenuView()
+            menuWindow.contentView?.addSubview(menuView)
+        }
+
         menuView.makeMenu(pid)
     }
     
