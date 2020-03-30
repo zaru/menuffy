@@ -9,7 +9,7 @@
 import Cocoa
 
 class MenuView: NSView {
-    var appMenu: NSMenu!
+    var appMenu: NSMenu = NSMenu()
     private (set) public var allElements: [AXUIElement] = []
     var allMenuItems: [NSMenuItem] = []
     var menuIndex: Int = 0
@@ -53,12 +53,6 @@ class MenuView: NSView {
     }
     
     func reset() {
-        appMenu = NSMenu()
-
-        let searchItem = SearchMenuItem()
-        searchItem.setNextKeyView(view: self)
-        appMenu.addItem(searchItem)
-
         allElements = []
         allMenuItems = []
         menuIndex = 0
@@ -67,6 +61,11 @@ class MenuView: NSView {
     
     func makeMenu(_ pid: pid_t) {
         reset()
+        
+        let searchItem = SearchMenuItem()
+        searchItem.setNextKeyView(view: self)
+        appMenu.addItem(searchItem)
+        
         let items = getMenuItems(pid)
         topLevelMenuNum = items.count
         buildAllMenu(items)

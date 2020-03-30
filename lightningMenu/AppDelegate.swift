@@ -61,20 +61,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         print("key press cmd ctrl m")
         let app = activeApp()
         let pid = app.processIdentifier
-        if menuWindow == nil {
-            menuWindow = MenuWindow()
-            
-            menuView = MenuView()
-            menuWindow.contentView?.addSubview(menuView)
-        }
-        
-        // これで Window 自体を最前面の active 状態にしないと NSMenu の TextField が編集できない
-        NSApplication.shared.activate(ignoringOtherApps: true)
-        // 遅延して popup させないと↑の active よりも先に開いて、その後閉じられてしまう…
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.menuView.makeMenu(pid)
-        }
-        
+
+        menuWindow = MenuWindow()
+        menuView = MenuView()
+        menuView.appMenu.delegate = self
+        menuWindow.contentView?.addSubview(menuView)
+        menuView.makeMenu(pid)
     }
     
     func activeApp() -> NSRunningApplication {
@@ -90,3 +82,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
 }
 
+extension AppDelegate: NSMenuDelegate {
+    func menuDidClose(_ menu: NSMenu) {
+        menuWindow.close()
+    }
+}
