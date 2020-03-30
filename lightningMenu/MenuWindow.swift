@@ -30,7 +30,9 @@ class MenuWindow : NSWindow {
         self.makeKeyAndOrderFront(nil)
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         self.level = NSWindow.Level.floating
-        self.isMovableByWindowBackground = true
-        
+    }
+    
+    override var canBecomeKey: Bool {
+        return true
     }
 }

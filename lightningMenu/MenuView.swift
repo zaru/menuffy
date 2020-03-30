@@ -11,7 +11,9 @@ import Cocoa
 class MenuView: NSView {
     var appMenu: NSMenu!
     private (set) public var allElements: [AXUIElement] = []
+    var allMenuItems: [NSMenuItem] = []
     var menuIndex: Int = 0
+    var topLevelMenuNum: Int = 0
     
     // 検索用フィールドからフォーカスを移すために必要なフラグ
     override var acceptsFirstResponder: Bool {
@@ -20,29 +22,32 @@ class MenuView: NSView {
         }
     }
 
-    func increment(_ element: AXUIElement) {
+    func increment(element: AXUIElement, menuItem: NSMenuItem) {
         allElements.append(element)
+        allMenuItems.append(menuItem)
         menuIndex += 1
     }
     
-    //TODO: 1階層しか対応していないので後でなおす
     func filterMenuItem(keyword: String) {
-        let itemNum = appMenu.items.count
-        for i in 1..<itemNum {
-            print("\(i)")
+        // 検索時は既存のトップレベルメニューを隠す、空なら表示する
+        let hidden = keyword == "" ? false : true
+        for i in 1...topLevelMenuNum {
             let item = appMenu.items[i]
-            
-            if keyword == "" {
-                item.isHidden = false
-            } else {
-                
-                if item.title.localizedCaseInsensitiveContains(keyword) {
-                    print("title: \(item.title)")
-                    item.isHidden = false
-                } else {
-                    //                appMenu.removeItem(at: i)
-                    item.isHidden = true
-                }
+            item.isHidden = hidden
+        }
+
+        let startHitIndex = topLevelMenuNum + 1
+        
+        for i in startHitIndex..<appMenu.items.count {
+            // remove した時に index が上に詰まっていくので削除対象のインデックスは常に同じ
+            if appMenu.items.indices.contains(startHitIndex) {
+                appMenu.removeItem(at: startHitIndex)
+            }
+        }
+        
+        for item in allMenuItems {
+            if item.title.localizedCaseInsensitiveContains(keyword) {
+                appMenu.addItem(item.copy() as! NSMenuItem)
             }
         }
     }
@@ -55,12 +60,15 @@ class MenuView: NSView {
         appMenu.addItem(searchItem)
 
         allElements = []
+        allMenuItems = []
         menuIndex = 0
+        topLevelMenuNum = 0
     }
     
     func makeMenu(_ pid: pid_t) {
         reset()
         let items = getMenuItems(pid)
+        topLevelMenuNum = items.count
         buildAllMenu(items)
         
         appMenu.popUp(positioning: nil, at: NSZeroPoint, in: self)
@@ -125,7 +133,7 @@ class MenuView: NSView {
             } else {
                 let subMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
                 subMenuItem.tag = menuIndex
-                increment(element)
+                increment(element: element, menuItem: subMenuItem)
                 subMenu.addItem(subMenuItem)
                 
                 let lastMenuItems = getChildren(element)
@@ -157,7 +165,7 @@ class MenuView: NSView {
             } else if enabled {
                 let lastMenuItem = NSMenuItem(title: title, action: #selector(AppDelegate.pressMenu), keyEquivalent: "")
                 lastMenuItem.tag = menuIndex
-                increment(element)
+                increment(element: element, menuItem: lastMenuItem)
                 lastMenu.addItem(lastMenuItem)
             } else {
                 let lastMenuItem = NSMenuItem(title: title, action: nil, keyEquivalent: "")
