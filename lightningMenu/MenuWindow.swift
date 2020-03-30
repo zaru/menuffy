@@ -8,6 +8,7 @@
 
 import Cocoa
 
+// NSWindow だと NSTextField が active にならないので NSPanel にする
 class MenuWindow : NSPanel {
     
     override init(contentRect: NSRect,
@@ -30,6 +31,7 @@ class MenuWindow : NSPanel {
         self.makeKeyAndOrderFront(nil)
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         self.level = NSWindow.Level.floating
+
     }
     
     override var canBecomeKey: Bool {
