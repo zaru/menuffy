@@ -9,18 +9,51 @@
 import Cocoa
 
 class MenuView: NSView {
-    
     var appMenu: NSMenu!
     private (set) public var allElements: [AXUIElement] = []
     var menuIndex: Int = 0
+    
+    // 検索用フィールドからフォーカスを移すために必要なフラグ
+    override var acceptsFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
 
     func increment(_ element: AXUIElement) {
         allElements.append(element)
         menuIndex += 1
     }
     
+    //TODO: 1階層しか対応していないので後でなおす
+    func filterMenuItem(keyword: String) {
+        let itemNum = appMenu.items.count
+        for i in 1..<itemNum {
+            print("\(i)")
+            let item = appMenu.items[i]
+            
+            if keyword == "" {
+                item.isHidden = false
+            } else {
+                
+                if item.title.localizedCaseInsensitiveContains(keyword) {
+                    print("title: \(item.title)")
+                    item.isHidden = false
+                } else {
+                    //                appMenu.removeItem(at: i)
+                    item.isHidden = true
+                }
+            }
+        }
+    }
+    
     func reset() {
         appMenu = NSMenu()
+
+        let searchItem = SearchMenuItem()
+        searchItem.setNextKeyView(view: self)
+        appMenu.addItem(searchItem)
+
         allElements = []
         menuIndex = 0
     }

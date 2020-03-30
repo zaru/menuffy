@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		57350D04242EDBB100B5E977 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57350D03242EDBB100B5E977 /* AppDelegate.swift */; };
 		57350D06242EDBB200B5E977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57350D05242EDBB200B5E977 /* Assets.xcassets */; };
-		578C55872430D3BE00AF0ED0 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 578C55862430D3BE00AF0ED0 /* SearchView.swift */; };
+		57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */; };
 		57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
 		57DB241D242EEEB300894FA3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DB241C242EEEB300894FA3 /* Storyboard.storyboard */; };
 		57DB2441242EF8E500894FA3 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DB2440242EF8E500894FA3 /* MenuView.swift */; };
@@ -22,7 +22,7 @@
 		57350D05242EDBB200B5E977 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57350D0A242EDBB200B5E977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lightningMenu.entitlements; sourceTree = "<group>"; };
-		578C55862430D3BE00AF0ED0 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMenuItem.swift; sourceTree = "<group>"; };
 		57DB2415242EE0AA00894FA3 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 		57DB241C242EEEB300894FA3 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		57DB2440242EF8E500894FA3 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -62,12 +62,12 @@
 			isa = PBXGroup;
 			children = (
 				57350D03242EDBB100B5E977 /* AppDelegate.swift */,
-				578C55862430D3BE00AF0ED0 /* SearchView.swift */,
 				57350D05242EDBB200B5E977 /* Assets.xcassets */,
 				57350D0A242EDBB200B5E977 /* Info.plist */,
 				57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */,
 				57DB241C242EEEB300894FA3 /* Storyboard.storyboard */,
 				57DB2440242EF8E500894FA3 /* MenuView.swift */,
+				57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */,
 				57DB2442242F422800894FA3 /* MenuWindow.swift */,
 			);
 			path = lightningMenu;
@@ -178,9 +178,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				578C55872430D3BE00AF0ED0 /* SearchView.swift in Sources */,
 				57DB2441242EF8E500894FA3 /* MenuView.swift in Sources */,
 				57350D04242EDBB100B5E977 /* AppDelegate.swift in Sources */,
+				57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */,
 				57DB2443242F422800894FA3 /* MenuWindow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

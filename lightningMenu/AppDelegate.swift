@@ -10,7 +10,7 @@ import Cocoa
 import Magnet
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     @IBOutlet weak var window: NSWindow!
     
@@ -29,13 +29,34 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }
-        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         HotKeyCenter.shared.unregisterAll()
     }
-    
+
+    func controlTextDidChange(_ notification:Notification) {
+        let textField = notification.object as? NSTextField
+        print(textField?.stringValue)
+        menuView.filterMenuItem(keyword: textField!.stringValue)
+    }
+
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        print("control")
+        // TODO: ここで↓キーが押されたら、強制的にフォーカスして、Tab ↓ ↓ と入力されるように調整している
+        // これによって検索時に↓を押せばメニューにフォーカスできるようになるが、実装が不恰好なので直す
+        if commandSelector == #selector(NSResponder.moveDown(_:)) {
+            menuWindow.makeFirstResponder(menuView)
+            let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+            let tabEvent = CGEvent(keyboardEventSource: source, virtualKey: 0x30, keyDown: true)
+            tabEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+            let source2 = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+            let downArrowEvent = CGEvent(keyboardEventSource: source2, virtualKey: 0x7d, keyDown: true)
+            downArrowEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+        }
+        return false
+    }
+
     @objc func openMenu() {
         print("key press cmd ctrl m")
         let app = activeApp()
@@ -43,14 +64,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if menuWindow == nil {
             menuWindow = MenuWindow()
-
-            let searchView = SearchView()
-            menuWindow.contentView?.addSubview(searchView)
             
             menuView = MenuView()
             menuWindow.contentView?.addSubview(menuView)
         }
-
         menuView.makeMenu(pid)
     }
     
