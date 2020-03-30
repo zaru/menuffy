@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class MenuWindow : NSWindow {
+class MenuWindow : NSPanel {
     
     override init(contentRect: NSRect,
                   styleMask style: NSWindow.StyleMask,
@@ -20,7 +20,7 @@ class MenuWindow : NSWindow {
         let y = screenFrame.height / 2 + 100
 
         super.init(contentRect: NSMakeRect(x, y, 200, 50),
-                   styleMask: [.borderless],
+                   styleMask: [.nonactivatingPanel],
                    backing: .buffered,
                    defer: false)
 
