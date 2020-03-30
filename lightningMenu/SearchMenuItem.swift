@@ -15,12 +15,25 @@ class SearchMenuItem: NSMenuItem {
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         super.init(title: string, action: selector, keyEquivalent: charCode)
 
-        searchField = NSTextField(frame: NSMakeRect(0, 0, 150, 20))
+        let view = NSView(frame: NSMakeRect(0, 0, 160, 30))
+
+        searchField = NSTextField(frame: NSMakeRect(20, 8, 140, 20))
+        searchField.wantsLayer = true
+        let border = CALayer()
+        border.frame = CGRect(x: 0, y: 19, width: 140, height: 1)
+        border.backgroundColor = NSColor(red: 220/255, green: 220/255, blue: 225/255, alpha: 0.8).cgColor
+        searchField.layer?.addSublayer(border)
+
+        searchField.isBezeled = false
+        searchField.drawsBackground = false
+        searchField.focusRingType = .none
+        searchField.placeholderString = "search menu"
         
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         searchField.delegate = appDelegate
         
-        self.view = searchField
+        view.addSubview(searchField)
+        self.view = view
     }
     
     required init(coder decoder: NSCoder) {
