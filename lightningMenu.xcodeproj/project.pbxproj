@@ -115,6 +115,7 @@
 				TargetAttributes = {
 					57350CFF242EDBB100B5E977 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1140;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 0;
@@ -340,7 +341,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.lightningMenu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -363,7 +364,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.lightningMenu";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
