@@ -83,7 +83,7 @@ class MenuView: NSView {
         } else {
             print("open accesibility permission dialog")
             let options = NSDictionary(
-                object: kCFBooleanTrue,
+                object: kCFBooleanTrue ?? true,
                 forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
                 ) as CFDictionary
 
