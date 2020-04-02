@@ -9,8 +9,8 @@
 import Cocoa
 
 // NSWindow だと NSTextField が active にならないので NSPanel にする
-class MenuWindow : NSPanel {
-    
+class MenuWindow: NSPanel {
+
     override init(contentRect: NSRect,
                   styleMask style: NSWindow.StyleMask,
                   backing backingStoreType: NSWindow.BackingStoreType,
@@ -20,7 +20,7 @@ class MenuWindow : NSPanel {
         let x = screenFrame.width / 2 - 100
         let y = screenFrame.height / 2 + 100
 
-        super.init(contentRect: NSMakeRect(x, y, 200, 50),
+        super.init(contentRect: NSRect(x: x, y: y, width: 200, height: 50),
                    styleMask: [.nonactivatingPanel],
                    backing: .buffered,
                    defer: false)
@@ -33,7 +33,7 @@ class MenuWindow : NSPanel {
         self.level = NSWindow.Level.floating
 
     }
-    
+
     override var canBecomeKey: Bool {
         return true
     }

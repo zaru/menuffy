@@ -13,12 +13,11 @@ import Magnet
 class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     @IBOutlet weak var window: NSWindow!
-    
+
     var statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     var menuWindow: NSWindow!
     var menuView: MenuView!
-
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         if let button = statusItem.button {
@@ -29,7 +28,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
             let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }
-        
+
         addStatusIconMenu()
     }
 
@@ -37,7 +36,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         HotKeyCenter.shared.unregisterAll()
     }
 
-    func controlTextDidChange(_ notification:Notification) {
+    func controlTextDidChange(_ notification: Notification) {
         let textField = notification.object as? NSTextField
         print(textField?.stringValue)
         menuView.filterMenuItem(keyword: textField!.stringValue)
@@ -58,7 +57,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         }
         return false
     }
-    
+
     func addStatusIconMenu() {
         let menu = NSMenu()
         let menuItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
@@ -77,10 +76,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         menuWindow.contentView?.addSubview(menuView)
         menuView.makeMenu(pid)
     }
-    
+
     func activeApp() -> NSRunningApplication {
         let runningApps = NSWorkspace.shared.runningApplications
-        let activeApp = runningApps.filter{ $0.isActive }[0]
+        let activeApp = runningApps.filter { $0.isActive }[0]
         return activeApp
     }
 
@@ -88,7 +87,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     @objc func pressMenu(sender: NSMenuItem) {
         AXUIElementPerformAction(menuView.allElements[sender.tag], kAXPressAction as CFString)
     }
-    
+
     @objc func quit(sender: NSButton) {
         NSApplication.shared.terminate(self)
     }

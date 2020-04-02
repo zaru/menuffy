@@ -9,15 +9,15 @@
 import Cocoa
 
 class SearchMenuItem: NSMenuItem {
-    
+
     var searchField: NSTextField!
-    
+
     override init(title string: String, action selector: Selector?, keyEquivalent charCode: String) {
         super.init(title: string, action: selector, keyEquivalent: charCode)
 
-        let view = NSView(frame: NSMakeRect(0, 0, 160, 30))
+        let view = NSView(frame: NSRect(x: 0, y: 0, width: 160, height: 30))
 
-        searchField = NSTextField(frame: NSMakeRect(20, 8, 140, 20))
+        searchField = NSTextField(frame: NSRect(x: 20, y: 8, width: 140, height: 20))
         searchField.wantsLayer = true
         let border = CALayer()
         border.frame = CGRect(x: 0, y: 19, width: 140, height: 1)
@@ -28,18 +28,18 @@ class SearchMenuItem: NSMenuItem {
         searchField.drawsBackground = false
         searchField.focusRingType = .none
         searchField.placeholderString = "search menu"
-        
+
         let appDelegate = NSApplication.shared.delegate as! AppDelegate
         searchField.delegate = appDelegate
-        
+
         view.addSubview(searchField)
         self.view = view
     }
-    
+
     required init(coder decoder: NSCoder) {
         super.init(coder: decoder)
     }
-    
+
     func setNextKeyView(view: NSView) {
         searchField.nextKeyView = view
     }
