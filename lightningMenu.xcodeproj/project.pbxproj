@@ -92,6 +92,7 @@
 				57350CFD242EDBB100B5E977 /* Frameworks */,
 				57350CFE242EDBB100B5E977 /* Resources */,
 				57DB2417242EE0E500894FA3 /* ShellScript */,
+				57EE06B62435CD77001193CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -170,6 +171,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks\n";
+		};
+		57EE06B62435CD77001193CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "swiftlint\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
