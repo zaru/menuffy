@@ -29,6 +29,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
             let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }
+        
+        addStatusIconMenu()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -56,6 +58,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         }
         return false
     }
+    
+    func addStatusIconMenu() {
+        let menu = NSMenu()
+        let menuItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
+        menu.addItem(menuItem)
+        statusItem.menu = menu
+    }
 
     @objc func openMenu() {
         print("key press cmd ctrl m")
@@ -78,6 +87,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
     @objc func pressMenu(sender: NSMenuItem) {
         AXUIElementPerformAction(menuView.allElements[sender.tag], kAXPressAction as CFString)
+    }
+    
+    @objc func quit(sender: NSButton) {
+        NSApplication.shared.terminate(self)
     }
 
 }
