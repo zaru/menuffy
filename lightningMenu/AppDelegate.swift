@@ -25,7 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         }
 
         if let keyCombo = KeyCombo(keyCode: 46, carbonModifiers: 4352) {
-            let hotKey = HotKey(identifier: "CommandControlM", keyCombo: keyCombo, target: self, action: #selector(openMenu))
+            let hotKey = HotKey(identifier: "CommandControlM",
+                                keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }
 
@@ -38,7 +39,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     func controlTextDidChange(_ notification: Notification) {
         let textField = notification.object as? NSTextField
-        print(textField?.stringValue)
+        print(textField?.stringValue ?? "")
         menuView.filterMenuItem(keyword: textField!.stringValue)
     }
 

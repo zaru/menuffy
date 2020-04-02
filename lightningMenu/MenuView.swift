@@ -17,9 +17,7 @@ class MenuView: NSView {
 
     // 検索用フィールドからフォーカスを移すために必要なフラグ
     override var acceptsFirstResponder: Bool {
-        get {
-            return true
-        }
+        return true
     }
 
     func increment(element: AXUIElement, menuItem: NSMenuItem) {
@@ -31,14 +29,14 @@ class MenuView: NSView {
     func filterMenuItem(keyword: String) {
         // 検索時は既存のトップレベルメニューを隠す、空なら表示する
         let hidden = keyword == "" ? false : true
-        for i in 1...topLevelMenuNum {
-            let item = appMenu.items[i]
+        for index in 1...topLevelMenuNum {
+            let item = appMenu.items[index]
             item.isHidden = hidden
         }
 
         let startHitIndex = topLevelMenuNum + 1
 
-        for i in startHitIndex..<appMenu.items.count {
+        for _ in startHitIndex..<appMenu.items.count {
             // remove した時に index が上に詰まっていくので削除対象のインデックスは常に同じ
             if appMenu.items.indices.contains(startHitIndex) {
                 appMenu.removeItem(at: startHitIndex)
@@ -47,7 +45,8 @@ class MenuView: NSView {
 
         for item in allMenuItems {
             if item.title.localizedCaseInsensitiveContains(keyword) {
-                appMenu.addItem(item.copy() as! NSMenuItem)
+                guard let copyItem = item.copy() as? NSMenuItem else { continue }
+                appMenu.addItem(copyItem)
             }
         }
     }
@@ -77,7 +76,9 @@ class MenuView: NSView {
         let appRef = AXUIElementCreateApplication(pid)
         var menubar: CFTypeRef?
         let status: AXError = AXUIElementCopyAttributeValue(appRef, kAXMenuBarAttribute as CFString, &menubar)
-        if status == AXError.success {
+        if status == AXError.success && menubar != nil {
+            // TODO: ここで強制キャストをせずに渡す方法が見つからなかった、もしあれば直したい
+            // swiftlint:disable:next force_cast
             return getChildren(menubar as! AXUIElement)
         } else {
             print("open accesibility permission dialog")
@@ -178,23 +179,26 @@ class MenuView: NSView {
         if children == nil {
             return []
         }
-        return children as! [AXUIElement]
+        if let childrenElements = children as? [AXUIElement] {
+            return childrenElements
+        }
+        return []
     }
 
     func getTitle(_ element: AXUIElement) -> String {
         let title = getAttribute(element: element, name: kAXTitleAttribute)
-        if title == nil {
-            return ""
+        if title != nil, let titleString = title as? String {
+            return titleString
         }
-        return title as! String
+        return ""
     }
 
     func getEnabled(_ element: AXUIElement) -> Bool {
         let enabled = getAttribute(element: element, name: kAXEnabledAttribute)
-        if enabled == nil {
-            return false
+        if enabled != nil, let enabledBool = enabled as? Bool {
+            return enabledBool
         }
-        return enabled as! Bool
+        return false
     }
 
     func getAttribute(element: AXUIElement, name: String) -> CFTypeRef? {

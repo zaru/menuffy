@@ -29,8 +29,9 @@ class SearchMenuItem: NSMenuItem {
         searchField.focusRingType = .none
         searchField.placeholderString = "search menu"
 
-        let appDelegate = NSApplication.shared.delegate as! AppDelegate
-        searchField.delegate = appDelegate
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+            searchField.delegate = appDelegate
+        }
 
         view.addSubview(searchField)
         self.view = view

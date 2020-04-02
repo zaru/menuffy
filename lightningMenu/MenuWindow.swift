@@ -17,10 +17,10 @@ class MenuWindow: NSPanel {
                   defer flag: Bool) {
 
         let screenFrame = NSScreen.main!.frame
-        let x = screenFrame.width / 2 - 100
-        let y = screenFrame.height / 2 + 100
+        let menuX = screenFrame.width / 2 - 100
+        let menuY = screenFrame.height / 2 + 100
 
-        super.init(contentRect: NSRect(x: x, y: y, width: 200, height: 50),
+        super.init(contentRect: NSRect(x: menuX, y: menuY, width: 200, height: 50),
                    styleMask: [.nonactivatingPanel],
                    backing: .buffered,
                    defer: false)
