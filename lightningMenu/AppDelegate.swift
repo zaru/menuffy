@@ -25,7 +25,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
         }
 
         if let keyCombo = KeyCombo(keyCode: 46, carbonModifiers: 4352) {
-            let hotKey = HotKey(identifier: "CommandControlM",
+            let hotKey = HotKey(identifier: "MainShortkey",
                                 keyCombo: keyCombo, target: self, action: #selector(openMenu))
             hotKey.register()
         }

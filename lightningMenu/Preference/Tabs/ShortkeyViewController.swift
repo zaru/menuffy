@@ -31,10 +31,31 @@ extension ShortkeyViewController: RecordViewDelegate {
     }
 
     func recordViewDidClearShortcut(_ recordView: RecordView) {
+        if let keyCombo = KeyCombo(keyCode: 46, carbonModifiers: 4352) {
+            if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+
+                HotKeyCenter.shared.unregisterHotKey(with: "MainShortkey")
+
+                let hotKey = HotKey(identifier: "MainShortkey",
+                                    keyCombo: keyCombo, target: self, action: #selector(appDelegate.openMenu))
+                hotKey.register()
+            }
+        }
     }
 
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
-        print(keyCombo)
+        print("recordView")
+        UserDefaults.standard.set(keyCombo.keyCode, forKey: "keyCode")
+        UserDefaults.standard.set(keyCombo.modifiers, forKey: "modifiers")
+        if let appDelegate = NSApplication.shared.delegate as? AppDelegate {
+            print(appDelegate)
+
+            HotKeyCenter.shared.unregisterHotKey(with: "MainShortkey")
+
+            let hotKey = HotKey(identifier: "MainShortkey",
+                                keyCombo: keyCombo, target: appDelegate, action: #selector(appDelegate.openMenu))
+            hotKey.register()
+        }
     }
 
     func recordViewDidEndRecording(_ recordView: RecordView) {
