@@ -83,10 +83,8 @@
 				57350D0A242EDBB200B5E977 /* Info.plist */,
 				57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */,
 				57DB241C242EEEB300894FA3 /* Storyboard.storyboard */,
-				57DB2440242EF8E500894FA3 /* MenuView.swift */,
-				57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */,
+				57D1EEE52437FF6E000E721E /* MainMenu */,
 				57412DC92436BD1900B47176 /* Preference */,
-				57DB2442242F422800894FA3 /* MenuWindow.swift */,
 				57D1EEE42437FF3C000E721E /* Manager */,
 			);
 			path = lightningMenu;
@@ -119,6 +117,16 @@
 				57D1EEE22437FB16000E721E /* ShortkeyManager.swift */,
 			);
 			path = Manager;
+			sourceTree = "<group>";
+		};
+		57D1EEE52437FF6E000E721E /* MainMenu */ = {
+			isa = PBXGroup;
+			children = (
+				57DB2440242EF8E500894FA3 /* MenuView.swift */,
+				57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */,
+				57DB2442242F422800894FA3 /* MenuWindow.swift */,
+			);
+			path = MainMenu;
 			sourceTree = "<group>";
 		};
 		57DB2414242EE0AA00894FA3 /* Frameworks */ = {
