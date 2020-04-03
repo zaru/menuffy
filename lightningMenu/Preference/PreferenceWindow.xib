@@ -6,7 +6,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="lightningMenu" customModuleProvider="target">
+            <connections>
+                <outlet property="toolbar" destination="vFo-by-p2x" id="a1j-yA-Eft"/>
+                <outlet property="window" destination="QvC-M9-y7g" id="Bv5-Zo-CLn"/>
+            </connections>
+        </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <window title="LightningMenu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
@@ -15,17 +20,23 @@
             <rect key="screenRect" x="0.0" y="0.0" width="3360" height="1394"/>
             <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
                 <rect key="frame" x="0.0" y="0.0" width="400" height="120"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             </view>
             <toolbar key="toolbar" implicitIdentifier="8FDB13FD-5222-4EE6-9921-66457B7DE20D" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="regular" id="vFo-by-p2x">
                 <allowedToolbarItems>
-                    <toolbarItem implicitItemIdentifier="93748CC9-8BDB-4683-9968-50B5D226BA94" label="Settings" paletteLabel="Settings" tag="-1" image="setting" id="HvX-0N-H6R">
+                    <toolbarItem implicitItemIdentifier="93748CC9-8BDB-4683-9968-50B5D226BA94" label="Settings" paletteLabel="Settings" image="setting" id="HvX-0N-H6R">
                         <size key="minSize" width="32" height="32"/>
                         <size key="maxSize" width="32" height="32"/>
+                        <connections>
+                            <action selector="selectMenu:" target="-2" id="Quz-PB-GU0"/>
+                        </connections>
                     </toolbarItem>
-                    <toolbarItem implicitItemIdentifier="9A6928AB-8927-4F3F-8F3D-FBBA4AE3B362" label="Shortkey" paletteLabel="Shortkey" tag="-1" image="shortkey" id="9OW-Sl-BmE">
+                    <toolbarItem implicitItemIdentifier="9A6928AB-8927-4F3F-8F3D-FBBA4AE3B362" label="Shortkey" paletteLabel="Shortkey" tag="1" image="shortkey" id="9OW-Sl-BmE">
                         <size key="minSize" width="32" height="32"/>
                         <size key="maxSize" width="32" height="32"/>
+                        <connections>
+                            <action selector="selectMenu:" target="-2" id="eRb-Vf-dzT"/>
+                        </connections>
                     </toolbarItem>
                 </allowedToolbarItems>
                 <defaultToolbarItems>
@@ -33,8 +44,21 @@
                     <toolbarItem reference="9OW-Sl-BmE"/>
                 </defaultToolbarItems>
             </toolbar>
+            <connections>
+                <outlet property="delegate" destination="-2" id="jmN-TD-VqN"/>
+            </connections>
             <point key="canvasLocation" x="139" y="147"/>
         </window>
+        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OcZ-Oo-WYw">
+            <rect key="frame" x="0.0" y="0.0" width="37" height="16"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="X1s-6C-RHg">
+                <font key="font" usesAppearanceFont="YES"/>
+                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+            </textFieldCell>
+            <point key="canvasLocation" x="139" y="295"/>
+        </textField>
     </objects>
     <resources>
         <image name="setting" width="32" height="32"/>
