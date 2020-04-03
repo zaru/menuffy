@@ -15,6 +15,7 @@
 		57C577152436CBCE0044F5F5 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C577142436CBCE0044F5F5 /* Settings.xib */; };
 		57C577172436CBDF0044F5F5 /* ShortkeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */; };
 		57C577192436CBEA0044F5F5 /* Shortkey.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C577182436CBEA0044F5F5 /* Shortkey.xib */; };
+		57D1EEE32437FB16000E721E /* ShortkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1EEE22437FB16000E721E /* ShortkeyManager.swift */; };
 		57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */; };
 		57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
 		57DB241D242EEEB300894FA3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DB241C242EEEB300894FA3 /* Storyboard.storyboard */; };
@@ -35,6 +36,7 @@
 		57C577142436CBCE0044F5F5 /* Settings.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Settings.xib; sourceTree = "<group>"; };
 		57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyViewController.swift; sourceTree = "<group>"; };
 		57C577182436CBEA0044F5F5 /* Shortkey.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Shortkey.xib; sourceTree = "<group>"; };
+		57D1EEE22437FB16000E721E /* ShortkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyManager.swift; sourceTree = "<group>"; };
 		57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMenuItem.swift; sourceTree = "<group>"; };
 		57DB2415242EE0AA00894FA3 /* Magnet.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Magnet.framework; path = Carthage/Build/Mac/Magnet.framework; sourceTree = "<group>"; };
 		57DB241C242EEEB300894FA3 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */,
 				57412DC92436BD1900B47176 /* Preference */,
 				57DB2442242F422800894FA3 /* MenuWindow.swift */,
+				57D1EEE42437FF3C000E721E /* Manager */,
 			);
 			path = lightningMenu;
 			sourceTree = "<group>";
@@ -108,6 +111,14 @@
 				57C577182436CBEA0044F5F5 /* Shortkey.xib */,
 			);
 			path = Tabs;
+			sourceTree = "<group>";
+		};
+		57D1EEE42437FF3C000E721E /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				57D1EEE22437FB16000E721E /* ShortkeyManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 		57DB2414242EE0AA00894FA3 /* Frameworks */ = {
@@ -243,6 +254,7 @@
 				57DB2441242EF8E500894FA3 /* MenuView.swift in Sources */,
 				57350D04242EDBB100B5E977 /* AppDelegate.swift in Sources */,
 				57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */,
+				57D1EEE32437FB16000E721E /* ShortkeyManager.swift in Sources */,
 				57DB2443242F422800894FA3 /* MenuWindow.swift in Sources */,
 				57C577132436CBC40044F5F5 /* SettingsViewController.swift in Sources */,
 				57C577172436CBDF0044F5F5 /* ShortkeyViewController.swift in Sources */,

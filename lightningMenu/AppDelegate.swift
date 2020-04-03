@@ -20,14 +20,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     var menuView: MenuView!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+
+        let shortkeyManager = ShortkeyManager()
+        shortkeyManager.saveDefaultMainShortkey()
+        shortkeyManager.loadMainShortkey()
+
         if let button = statusItem.button {
             button.image = NSImage(named: "StatusImage")
-        }
-
-        if let keyCombo = KeyCombo(keyCode: 46, carbonModifiers: 4352) {
-            let hotKey = HotKey(identifier: "MainShortkey",
-                                keyCombo: keyCombo, target: self, action: #selector(openMenu))
-            hotKey.register()
         }
 
         addStatusIconMenu()
@@ -72,7 +71,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     }
 
     @objc func openMenu() {
-        print("key press cmd ctrl m")
         let app = activeApp()
         let pid = app.processIdentifier
 
