@@ -61,8 +61,13 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     func addStatusIconMenu() {
         let menu = NSMenu()
-        let menuItem = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
-        menu.addItem(menuItem)
+
+        let preferenceMenu = NSMenuItem(title: "Preference", action: #selector(openPreference), keyEquivalent: "")
+        menu.addItem(preferenceMenu)
+
+        let quitMenu = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
+        menu.addItem(quitMenu)
+
         statusItem.menu = menu
     }
 
@@ -91,6 +96,12 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     @objc func quit(sender: NSButton) {
         NSApplication.shared.terminate(self)
+    }
+
+    @objc func openPreference(sender: NSButton) {
+        NSApp.activate(ignoringOtherApps: true)
+        let preferenceWindow = PreferenceWindowController()
+        PreferenceWindowController.sharedController.showWindow(nil)
     }
 
 }
