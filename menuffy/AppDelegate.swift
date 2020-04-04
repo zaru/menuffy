@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var window: NSWindow!
 
@@ -40,21 +40,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     func controlTextDidChange(_ notification: Notification) {
         let textField = notification.object as? NSTextField
         menuView.filterMenuItem(keyword: textField!.stringValue)
-    }
-
-    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        // TODO: ここで↓キーが押されたら、強制的にフォーカスして、Tab ↓ ↓ と入力されるように調整している
-        // これによって検索時に↓を押せばメニューにフォーカスできるようになるが、実装が不恰好なので直す
-        if commandSelector == #selector(NSResponder.moveDown(_:)) {
-            menuWindow.makeFirstResponder(menuView)
-            let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
-            let tabEvent = CGEvent(keyboardEventSource: source, virtualKey: 0x30, keyDown: true)
-            tabEvent?.post(tap: CGEventTapLocation.cghidEventTap)
-            let source2 = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
-            let downArrowEvent = CGEvent(keyboardEventSource: source2, virtualKey: 0x7d, keyDown: true)
-            downArrowEvent?.post(tap: CGEventTapLocation.cghidEventTap)
-        }
-        return false
     }
 
     func addStatusIconMenu() {
@@ -97,14 +82,32 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     @objc func openPreference(sender: NSButton) {
         NSApp.activate(ignoringOtherApps: true)
-        let preferenceWindow = PreferenceWindowController()
         PreferenceWindowController.sharedController.showWindow(nil)
     }
 
 }
 
+//MARK: NSMenuDelegate
 extension AppDelegate: NSMenuDelegate {
     func menuDidClose(_ menu: NSMenu) {
         menuWindow.close()
+    }
+}
+
+//MARK: NSTextFieldDelegate
+extension AppDelegate: NSTextFieldDelegate {
+    func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
+        // TODO: ここで↓キーが押されたら、強制的にフォーカスして、Tab ↓ ↓ と入力されるように調整している
+        // これによって検索時に↓を押せばメニューにフォーカスできるようになるが、実装が不恰好なので直す
+        if commandSelector == #selector(NSResponder.moveDown(_:)) {
+            menuWindow.makeFirstResponder(menuView)
+            let source = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+            let tabEvent = CGEvent(keyboardEventSource: source, virtualKey: 0x30, keyDown: true)
+            tabEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+            let source2 = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
+            let downArrowEvent = CGEvent(keyboardEventSource: source2, virtualKey: 0x7d, keyDown: true)
+            downArrowEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+        }
+        return false
     }
 }
