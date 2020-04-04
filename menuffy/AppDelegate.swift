@@ -44,10 +44,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func addStatusIconMenu() {
         let menu = NSMenu()
 
-        let preferenceMenu = NSMenuItem(title: "Preference", action: #selector(openPreference), keyEquivalent: "")
+        let preferenceMenu = NSMenuItem(title: NSLocalizedString("Preference", comment: ""),
+                                        action: #selector(openPreference), keyEquivalent: "")
         menu.addItem(preferenceMenu)
 
-        let quitMenu = NSMenuItem(title: "Quit", action: #selector(quit), keyEquivalent: "")
+        let quitMenu = NSMenuItem(title: NSLocalizedString("Quit", comment: ""),
+                                  action: #selector(quit), keyEquivalent: "")
         menu.addItem(quitMenu)
 
         statusItem.menu = menu

@@ -1,0 +1,15 @@
+
+/* Class = "NSToolbarItem"; label = "Shortkey"; ObjectID = "9OW-Sl-BmE"; */
+"9OW-Sl-BmE.label" = "ショートカット";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Shortkey"; ObjectID = "9OW-Sl-BmE"; */
+"9OW-Sl-BmE.paletteLabel" = "ショートカット";
+
+/* Class = "NSToolbarItem"; label = "Settings"; ObjectID = "HvX-0N-H6R"; */
+"HvX-0N-H6R.label" = "設定";
+
+/* Class = "NSToolbarItem"; paletteLabel = "Settings"; ObjectID = "HvX-0N-H6R"; */
+"HvX-0N-H6R.paletteLabel" = "設定";
+
+/* Class = "NSWindow"; title = "menuffy"; ObjectID = "QvC-M9-y7g"; */
+"QvC-M9-y7g.title" = "menuffy";

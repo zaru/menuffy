@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZ6-xA-IZZ">
-                    <rect key="frame" x="98" y="46" width="204" height="18"/>
+                    <rect key="frame" x="18" y="46" width="372" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="check" title="Start menuffy when you log in" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qAh-6z-DQ4">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>

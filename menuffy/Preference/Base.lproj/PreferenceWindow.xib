@@ -49,16 +49,6 @@
             </connections>
             <point key="canvasLocation" x="139" y="147"/>
         </window>
-        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="OcZ-Oo-WYw">
-            <rect key="frame" x="0.0" y="0.0" width="37" height="16"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-            <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="X1s-6C-RHg">
-                <font key="font" usesAppearanceFont="YES"/>
-                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-            </textFieldCell>
-            <point key="canvasLocation" x="139" y="295"/>
-        </textField>
     </objects>
     <resources>
         <image name="setting" width="32" height="32"/>

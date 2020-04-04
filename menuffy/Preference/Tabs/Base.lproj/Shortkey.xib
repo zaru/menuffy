@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lb0-wa-eOg">
-                    <rect key="frame" x="33" y="45" width="59" height="16"/>
+                    <rect key="frame" x="18" y="45" width="116" height="16"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Shortkey" id="6HQ-Rb-GPE">
                         <font key="font" usesAppearanceFont="YES"/>
@@ -28,7 +28,7 @@
                     </textFieldCell>
                 </textField>
                 <customView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dkd-8b-aJb" customClass="RecordView" customModule="KeyHolder">
-                    <rect key="frame" x="130" y="36" width="250" height="34"/>
+                    <rect key="frame" x="140" y="36" width="250" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
