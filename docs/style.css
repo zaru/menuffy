@@ -1,3 +1,22 @@
+html, body {
+    font-family: 'Sen', sans-serif;
+}
+
+
+header {
+    text-align: right;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 1000px;
+}
+header a {
+    color: #303030;
+}
+header a:hover {
+    text-decoration: none;
+}
+
+
 section {
     margin: 20px auto;
     width: 80%;
