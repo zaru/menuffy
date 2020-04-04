@@ -8,6 +8,7 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SettingsViewController" customModule="lightningMenu" customModuleProvider="target">
             <connections>
+                <outlet property="loginServiceButton" destination="CZ6-xA-IZZ" id="s3b-Pe-6mT"/>
                 <outlet property="view" destination="c22-O7-iKe" id="0tA-T3-uDl"/>
             </connections>
         </customObject>
@@ -17,15 +18,17 @@
             <rect key="frame" x="0.0" y="0.0" width="400" height="100"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pbA-L5-dvh">
-                    <rect key="frame" x="174" y="64" width="53" height="16"/>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZ6-xA-IZZ">
+                    <rect key="frame" x="78" y="64" width="244" height="18"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="settings" id="SQV-HI-qZq">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                    </textFieldCell>
-                </textField>
+                    <buttonCell key="cell" type="check" title="Start LightningMenu when you log in" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="qAh-6z-DQ4">
+                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="toggleLoginService:" target="-2" id="Taa-dh-6WN"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="137" y="154"/>
         </customView>

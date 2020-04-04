@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import Magnet
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
@@ -21,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+        LoginServiceManager().loadConfig()
+
         let shortkeyManager = ShortkeyManager()
         shortkeyManager.saveDefaultMainShortkey()
         shortkeyManager.loadMainShortkey()
@@ -33,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        HotKeyCenter.shared.unregisterAll()
+        ShortkeyManager().unregisterAll()
     }
 
     func controlTextDidChange(_ notification: Notification) {

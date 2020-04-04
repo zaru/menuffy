@@ -25,7 +25,7 @@ class ShortkeyManager: NSObject {
     }
 
     func saveDefaultMainShortkey() {
-        UserDefaults.standard.register(defaults: ["keyCode": 46, "modifiers": 4352])
+        UserDefaults.standard.register(defaults: ["keyCode": 46, "modifiers": 4352, "LoginService": 1])
     }
 
     func loadMainShortkey() {
@@ -36,6 +36,10 @@ class ShortkeyManager: NSObject {
             ShortkeyManager().setMainShortkey(keyCombo: keyCombo)
         }
 
+    }
+
+    func unregisterAll() {
+        HotKeyCenter.shared.unregisterAll()
     }
 
 }
