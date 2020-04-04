@@ -39,12 +39,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSTextFieldDelegate {
 
     func controlTextDidChange(_ notification: Notification) {
         let textField = notification.object as? NSTextField
-        print(textField?.stringValue ?? "")
         menuView.filterMenuItem(keyword: textField!.stringValue)
     }
 
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
-        print("control")
         // TODO: ここで↓キーが押されたら、強制的にフォーカスして、Tab ↓ ↓ と入力されるように調整している
         // これによって検索時に↓を押せばメニューにフォーカスできるようになるが、実装が不恰好なので直す
         if commandSelector == #selector(NSResponder.moveDown(_:)) {

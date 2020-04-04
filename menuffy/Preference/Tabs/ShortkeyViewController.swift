@@ -37,7 +37,6 @@ extension ShortkeyViewController: RecordViewDelegate {
     }
 
     func recordView(_ recordView: RecordView, didChangeKeyCombo keyCombo: KeyCombo) {
-        print("recordView")
         UserDefaults.standard.set(keyCombo.keyCode, forKey: "keyCode")
         UserDefaults.standard.set(keyCombo.modifiers, forKey: "modifiers")
         ShortkeyManager().setMainShortkey(keyCombo: keyCombo)

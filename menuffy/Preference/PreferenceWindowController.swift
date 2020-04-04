@@ -19,7 +19,6 @@ class PreferenceWindowController: NSWindowController {
     }
 
     @IBAction func selectMenu(_ sender: NSToolbarItem) {
-        print("selectMenu")
         switchTab(sender.tag)
     }
 

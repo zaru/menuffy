@@ -81,7 +81,6 @@ class MenuView: NSView {
             // swiftlint:disable:next force_cast
             return getChildren(menubar as! AXUIElement)
         } else {
-            print("open accesibility permission dialog")
             let options = NSDictionary(
                 object: kCFBooleanTrue ?? true,
                 forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
@@ -98,7 +97,6 @@ class MenuView: NSView {
             if title == "Apple" {
                 title = ""
             }
-//            print("menu item: \(title)")
 
             let item = NSMenuItem(title: title, action: nil, keyEquivalent: "")
             appMenu.addItem(item)
@@ -122,7 +120,6 @@ class MenuView: NSView {
         for element in subMenuItemsElements {
             let position = getAttribute(element: element, name: kAXPositionAttribute)
             let title = getTitle(element)
-//            print("submenu item: \(title) : \(position)")
 
             if position == nil {
                 continue
@@ -154,7 +151,6 @@ class MenuView: NSView {
             let position = getAttribute(element: element, name: kAXPositionAttribute)
             let enabled = getEnabled(element)
             let title = getTitle(element)
-//            print("lastmenu item: \(title) : \(position)")
 
             if position == nil {
                 continue
