@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="lightningMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="PreferenceWindowController" customModule="menuffy" customModuleProvider="target">
             <connections>
                 <outlet property="toolbar" destination="vFo-by-p2x" id="a1j-yA-Eft"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="Bv5-Zo-CLn"/>
