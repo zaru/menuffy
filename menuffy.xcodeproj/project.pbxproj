@@ -11,30 +11,34 @@
 		57350D06242EDBB200B5E977 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 57350D05242EDBB200B5E977 /* Assets.xcassets */; };
 		57412DCB2436BD2B00B47176 /* PreferenceWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57412DCA2436BD2B00B47176 /* PreferenceWindow.xib */; };
 		57412DCD2436BD3700B47176 /* PreferenceWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57412DCC2436BD3700B47176 /* PreferenceWindowController.swift */; };
+		575EF63724382E27001F715A /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F0BEA22436466000B48D46 /* KeyHolder.framework */; };
+		575EF63824382E27001F715A /* KeyHolder.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57F0BEA22436466000B48D46 /* KeyHolder.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		575EF63924382E27001F715A /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
+		575EF63A24382E27001F715A /* Magnet.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		575EF63B24382E27001F715A /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1EEE624380167000E721E /* LoginServiceKit.framework */; };
+		575EF63C24382E27001F715A /* LoginServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1EEE624380167000E721E /* LoginServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57C577132436CBC40044F5F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C577122436CBC40044F5F5 /* SettingsViewController.swift */; };
 		57C577152436CBCE0044F5F5 /* Settings.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C577142436CBCE0044F5F5 /* Settings.xib */; };
 		57C577172436CBDF0044F5F5 /* ShortkeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */; };
 		57C577192436CBEA0044F5F5 /* Shortkey.xib in Resources */ = {isa = PBXBuildFile; fileRef = 57C577182436CBEA0044F5F5 /* Shortkey.xib */; };
 		57D1EEE32437FB16000E721E /* ShortkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1EEE22437FB16000E721E /* ShortkeyManager.swift */; };
-		57D1EEE724380167000E721E /* LoginServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1EEE624380167000E721E /* LoginServiceKit.framework */; };
-		57D1EEE824380167000E721E /* LoginServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57D1EEE624380167000E721E /* LoginServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57D1EEEB243803B9000E721E /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1EEEA243803B9000E721E /* LoginServiceManager.swift */; };
 		57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */; };
-		57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57DB2415242EE0AA00894FA3 /* Magnet.framework */; };
 		57DB241D242EEEB300894FA3 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57DB241C242EEEB300894FA3 /* Storyboard.storyboard */; };
 		57DB2441242EF8E500894FA3 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DB2440242EF8E500894FA3 /* MenuView.swift */; };
 		57DB2443242F422800894FA3 /* MenuWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DB2442242F422800894FA3 /* MenuWindow.swift */; };
-		57F0BEA32436466000B48D46 /* KeyHolder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57F0BEA22436466000B48D46 /* KeyHolder.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		57D1EEE924380167000E721E /* Embed Frameworks */ = {
+		575EF63D24382E27001F715A /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				57D1EEE824380167000E721E /* LoginServiceKit.framework in Embed Frameworks */,
+				575EF63A24382E27001F715A /* Magnet.framework in Embed Frameworks */,
+				575EF63824382E27001F715A /* KeyHolder.framework in Embed Frameworks */,
+				575EF63C24382E27001F715A /* LoginServiceKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -42,11 +46,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		57350D00242EDBB100B5E977 /* lightningMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lightningMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		57350D00242EDBB100B5E977 /* menuffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = menuffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57350D03242EDBB100B5E977 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		57350D05242EDBB200B5E977 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		57350D0A242EDBB200B5E977 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = lightningMenu.entitlements; sourceTree = "<group>"; };
+		57350D0B242EDBB200B5E977 /* menuffy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = menuffy.entitlements; sourceTree = "<group>"; };
 		57412DCA2436BD2B00B47176 /* PreferenceWindow.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PreferenceWindow.xib; sourceTree = "<group>"; };
 		57412DCC2436BD3700B47176 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		57C577122436CBC40044F5F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -69,9 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57F0BEA32436466000B48D46 /* KeyHolder.framework in Frameworks */,
-				57DB2416242EE0AA00894FA3 /* Magnet.framework in Frameworks */,
-				57D1EEE724380167000E721E /* LoginServiceKit.framework in Frameworks */,
+				575EF63924382E27001F715A /* Magnet.framework in Frameworks */,
+				575EF63724382E27001F715A /* KeyHolder.framework in Frameworks */,
+				575EF63B24382E27001F715A /* LoginServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +85,7 @@
 		57350CF7242EDBB100B5E977 = {
 			isa = PBXGroup;
 			children = (
-				57350D02242EDBB100B5E977 /* lightningMenu */,
+				57350D02242EDBB100B5E977 /* menuffy */,
 				57350D01242EDBB100B5E977 /* Products */,
 				57DB2414242EE0AA00894FA3 /* Frameworks */,
 			);
@@ -90,24 +94,24 @@
 		57350D01242EDBB100B5E977 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				57350D00242EDBB100B5E977 /* lightningMenu.app */,
+				57350D00242EDBB100B5E977 /* menuffy.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		57350D02242EDBB100B5E977 /* lightningMenu */ = {
+		57350D02242EDBB100B5E977 /* menuffy */ = {
 			isa = PBXGroup;
 			children = (
 				57350D03242EDBB100B5E977 /* AppDelegate.swift */,
 				57350D05242EDBB200B5E977 /* Assets.xcassets */,
 				57350D0A242EDBB200B5E977 /* Info.plist */,
-				57350D0B242EDBB200B5E977 /* lightningMenu.entitlements */,
+				57350D0B242EDBB200B5E977 /* menuffy.entitlements */,
 				57DB241C242EEEB300894FA3 /* Storyboard.storyboard */,
 				57D1EEE52437FF6E000E721E /* MainMenu */,
 				57412DC92436BD1900B47176 /* Preference */,
 				57D1EEE42437FF3C000E721E /* Manager */,
 			);
-			path = lightningMenu;
+			path = menuffy;
 			sourceTree = "<group>";
 		};
 		57412DC92436BD1900B47176 /* Preference */ = {
@@ -163,24 +167,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		57350CFF242EDBB100B5E977 /* lightningMenu */ = {
+		57350CFF242EDBB100B5E977 /* menuffy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 57350D0E242EDBB200B5E977 /* Build configuration list for PBXNativeTarget "lightningMenu" */;
+			buildConfigurationList = 57350D0E242EDBB200B5E977 /* Build configuration list for PBXNativeTarget "menuffy" */;
 			buildPhases = (
 				57350CFC242EDBB100B5E977 /* Sources */,
 				57350CFD242EDBB100B5E977 /* Frameworks */,
 				57350CFE242EDBB100B5E977 /* Resources */,
 				57DB2417242EE0E500894FA3 /* ShellScript */,
 				57EE06B62435CD77001193CC /* ShellScript */,
-				57D1EEE924380167000E721E /* Embed Frameworks */,
+				575EF63D24382E27001F715A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = lightningMenu;
+			name = menuffy;
 			productName = lightningMenu;
-			productReference = 57350D00242EDBB100B5E977 /* lightningMenu.app */;
+			productReference = 57350D00242EDBB100B5E977 /* menuffy.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -204,7 +208,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 57350CFB242EDBB100B5E977 /* Build configuration list for PBXProject "lightningMenu" */;
+			buildConfigurationList = 57350CFB242EDBB100B5E977 /* Build configuration list for PBXProject "menuffy" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,7 +221,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				57350CFF242EDBB100B5E977 /* lightningMenu */,
+				57350CFF242EDBB100B5E977 /* menuffy */,
 			);
 		};
 /* End PBXProject section */
@@ -424,12 +428,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = lightningMenu/Info.plist;
+				INFOPLIST_FILE = menuffy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.lightningMenu";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.menuffy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -447,12 +452,13 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 				);
-				INFOPLIST_FILE = lightningMenu/Info.plist;
+				INFOPLIST_FILE = menuffy/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.lightningMenu";
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.menuffy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -461,7 +467,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		57350CFB242EDBB100B5E977 /* Build configuration list for PBXProject "lightningMenu" */ = {
+		57350CFB242EDBB100B5E977 /* Build configuration list for PBXProject "menuffy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57350D0C242EDBB200B5E977 /* Debug */,
@@ -470,7 +476,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		57350D0E242EDBB200B5E977 /* Build configuration list for PBXNativeTarget "lightningMenu" */ = {
+		57350D0E242EDBB200B5E977 /* Build configuration list for PBXNativeTarget "menuffy" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				57350D0F242EDBB200B5E977 /* Debug */,
