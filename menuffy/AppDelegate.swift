@@ -20,6 +20,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
 
+        if !isEnableAccesibility() {
+            showAccesibilityModalAndTerminate()
+            return
+        }
+
         LoginServiceManager().loadConfig()
 
         let shortkeyManager = ShortkeyManager()
@@ -65,10 +70,31 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menuView.makeMenu(pid)
     }
 
+    func showAccesibilityModalAndTerminate() {
+        let alert = NSAlert()
+        alert.alertStyle = .critical
+        alert.messageText = "'menuffy' requires this computer control using accessibility features.\n\nPlease select the 'menuffy' checkbox in Security & Privacy > Accessibility."
+        alert.addButton(withTitle: "OK")
+        let response = alert.runModal()
+        switch response {
+        case .alertFirstButtonReturn:
+            NSApplication.shared.terminate(self)
+        default:
+            break
+        }
+    }
+
     func activeApp() -> NSRunningApplication {
         let runningApps = NSWorkspace.shared.runningApplications
         let activeApp = runningApps.filter { $0.isActive }[0]
         return activeApp
+    }
+
+    func isEnableAccesibility() -> Bool {
+        if AXIsProcessTrusted() {
+            return true
+        }
+        return false
     }
 
     // TODO: なぜかここにセレクタのメソッドがないとメニューが有効にならない、あとで調べる
@@ -87,14 +113,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
 }
 
-//MARK: NSMenuDelegate
+// MARK: NSMenuDelegate
 extension AppDelegate: NSMenuDelegate {
     func menuDidClose(_ menu: NSMenu) {
         menuWindow.close()
     }
 }
 
-//MARK: NSTextFieldDelegate
+// MARK: NSTextFieldDelegate
 extension AppDelegate: NSTextFieldDelegate {
     func control(_ control: NSControl, textView: NSTextView, doCommandBy commandSelector: Selector) -> Bool {
         // TODO: ここで↓キーが押されたら、強制的にフォーカスして、Tab ↓ ↓ と入力されるように調整している

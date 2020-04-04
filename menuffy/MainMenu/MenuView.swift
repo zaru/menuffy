@@ -75,20 +75,10 @@ class MenuView: NSView {
     func getMenuItems(_ pid: pid_t) -> [AXUIElement] {
         let appRef = AXUIElementCreateApplication(pid)
         var menubar: CFTypeRef?
-        let status: AXError = AXUIElementCopyAttributeValue(appRef, kAXMenuBarAttribute as CFString, &menubar)
-        if status == AXError.success && menubar != nil {
-            // TODO: ここで強制キャストをせずに渡す方法が見つからなかった、もしあれば直したい
-            // swiftlint:disable:next force_cast
-            return getChildren(menubar as! AXUIElement)
-        } else {
-            let options = NSDictionary(
-                object: kCFBooleanTrue ?? true,
-                forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
-                ) as CFDictionary
-
-            AXIsProcessTrustedWithOptions(options)
-        }
-        return []
+        AXUIElementCopyAttributeValue(appRef, kAXMenuBarAttribute as CFString, &menubar)
+        // TODO: ここで強制キャストをせずに渡す方法が見つからなかった、もしあれば直したい
+        // swiftlint:disable:next force_cast
+        return getChildren(menubar as! AXUIElement)
     }
 
     func buildAllMenu(_ elements: [AXUIElement]) {
