@@ -19,12 +19,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var menuView: MenuView!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-
-        if !isEnableAccesibility() {
-            showAccesibilityModalAndTerminate()
-            return
-        }
-
         LoginServiceManager().loadConfig()
 
         let shortkeyManager = ShortkeyManager()
@@ -60,6 +54,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     @objc func openMenu() {
+        if !isEnableAccesibility() {
+            showAccesibilityModal()
+            return
+        }
+
         let app = activeApp()
         let pid = app.processIdentifier
 
@@ -70,18 +69,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         menuView.makeMenu(pid)
     }
 
-    func showAccesibilityModalAndTerminate() {
-        let alert = NSAlert()
-        alert.alertStyle = .critical
-        alert.messageText = "'menuffy' requires this computer control using accessibility features.\n\nPlease select the 'menuffy' checkbox in Security & Privacy > Accessibility."
-        alert.addButton(withTitle: "OK")
-        let response = alert.runModal()
-        switch response {
-        case .alertFirstButtonReturn:
-            NSApplication.shared.terminate(self)
-        default:
-            break
-        }
+    func showAccesibilityModal() {
+        let options = NSDictionary(
+            object: kCFBooleanTrue ?? true,
+            forKey: kAXTrustedCheckOptionPrompt.takeUnretainedValue() as NSString
+            ) as CFDictionary
+
+        AXIsProcessTrustedWithOptions(options)
     }
 
     func activeApp() -> NSRunningApplication {
