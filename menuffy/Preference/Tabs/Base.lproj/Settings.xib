@@ -29,8 +29,20 @@
                         <action selector="toggleLoginService:" target="-2" id="Taa-dh-6WN"/>
                     </connections>
                 </button>
+                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SdG-O4-18o">
+                    <rect key="frame" x="14" y="6" width="152" height="32"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="push" title="Check for updates" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="aZV-PL-Lgw">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="checkForUpdates:" target="ye6-Ug-RDz" id="XDl-ZZ-bp2"/>
+                    </connections>
+                </button>
             </subviews>
             <point key="canvasLocation" x="137" y="154"/>
         </customView>
+        <customObject id="ye6-Ug-RDz" customClass="SUUpdater"/>
     </objects>
 </document>
