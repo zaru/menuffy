@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+    <channel>
+        <title>menuffy</title>
+        <item>
+            <title>1.0.2</title>
+            <pubDate>Sun, 05 Apr 2020 22:20:31 +0900</pubDate>
+            <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
+            <enclosure url="https://drive.google.com/file/d/1A5ySSyGSsK4CUSN5dZouA6-NICu1Jxo4/view?usp=sharing" sparkle:version="1" sparkle:shortVersionString="1.0.2" length="5550996" type="application/octet-stream" sparkle:edSignature="aFb53FGmrleHLmymJmGXk++q4sRD7Wwd678lpNXEk4R402G/Nm7uAZj8ELYiZz/r4Q91rS+AN7P8zXckvjIWDQ=="/>
+        </item>
+    </channel>
+</rss>
