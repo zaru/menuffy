@@ -6,7 +6,7 @@ menuffy is a status menu application that allows you to open the menu of the cur
 
 ## Install
 
-[Download](https://github.com/zaru/menuffy/releases/download/v1.0.1/menuffy_1.0.1.dmg)
+[Download v1.0.2](https://github.com/zaru/menuffy/releases/download/v1.0.2/menuffy.dmg)
 
 ## Usage
 
