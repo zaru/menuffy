@@ -32,5 +32,9 @@
 	<string>Storyboard</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>https://zaru.github.io/menuffy/updates/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>O2U/L1FMaX/DQBb0ZQpEUdelbBpDd3nqXnV/ZA0HfKs=</string>
 </dict>
 </plist>

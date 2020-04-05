@@ -22,6 +22,8 @@
 		576556E82438CBBC00B61B4D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 576556EA2438CBBC00B61B4D /* Localizable.strings */; };
 		57C577132436CBC40044F5F5 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C577122436CBC40044F5F5 /* SettingsViewController.swift */; };
 		57C577172436CBDF0044F5F5 /* ShortkeyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */; };
+		57C88849243A02C800D9CE30 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 57C88848243A02C800D9CE30 /* Sparkle.framework */; };
+		57C8884A243A02C800D9CE30 /* Sparkle.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 57C88848243A02C800D9CE30 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		57D1EEE32437FB16000E721E /* ShortkeyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1EEE22437FB16000E721E /* ShortkeyManager.swift */; };
 		57D1EEEB243803B9000E721E /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57D1EEEA243803B9000E721E /* LoginServiceManager.swift */; };
 		57DA38D72431C70000BEDDBB /* SearchMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 57DA38D62431C70000BEDDBB /* SearchMenuItem.swift */; };
@@ -40,6 +42,7 @@
 				575EF63A24382E27001F715A /* Magnet.framework in Embed Frameworks */,
 				575EF63824382E27001F715A /* KeyHolder.framework in Embed Frameworks */,
 				575EF63C24382E27001F715A /* LoginServiceKit.framework in Embed Frameworks */,
+				57C8884A243A02C800D9CE30 /* Sparkle.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,7 +57,6 @@
 		57350D0B242EDBB200B5E977 /* menuffy.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = menuffy.entitlements; sourceTree = "<group>"; };
 		57412DCC2436BD3700B47176 /* PreferenceWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceWindowController.swift; sourceTree = "<group>"; };
 		576556D82438CA7D00B61B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Settings.xib; sourceTree = "<group>"; };
-		576556DB2438CA8100B61B4D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Settings.strings; sourceTree = "<group>"; };
 		576556DD2438CAAD00B61B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/Shortkey.xib; sourceTree = "<group>"; };
 		576556E02438CAAE00B61B4D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Shortkey.strings; sourceTree = "<group>"; };
 		576556E22438CB3500B61B4D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/PreferenceWindow.xib; sourceTree = "<group>"; };
@@ -63,6 +65,8 @@
 		576556EB2438CBC100B61B4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		57C577122436CBC40044F5F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyViewController.swift; sourceTree = "<group>"; };
+		57C88848243A02C800D9CE30 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
+		57C8884D243A1EF700D9CE30 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Settings.strings; sourceTree = "<group>"; };
 		57D1EEE22437FB16000E721E /* ShortkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyManager.swift; sourceTree = "<group>"; };
 		57D1EEE624380167000E721E /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
 		57D1EEEA243803B9000E721E /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
@@ -82,6 +86,7 @@
 				575EF63924382E27001F715A /* Magnet.framework in Frameworks */,
 				575EF63724382E27001F715A /* KeyHolder.framework in Frameworks */,
 				575EF63B24382E27001F715A /* LoginServiceKit.framework in Frameworks */,
+				57C88849243A02C800D9CE30 /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,6 +169,7 @@
 		57DB2414242EE0AA00894FA3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				57C88848243A02C800D9CE30 /* Sparkle.framework */,
 				57D1EEE624380167000E721E /* LoginServiceKit.framework */,
 				57F0BEA22436466000B48D46 /* KeyHolder.framework */,
 				57DB2415242EE0AA00894FA3 /* Magnet.framework */,
@@ -181,9 +187,10 @@
 				57350CFC242EDBB100B5E977 /* Sources */,
 				57350CFD242EDBB100B5E977 /* Frameworks */,
 				57350CFE242EDBB100B5E977 /* Resources */,
-				57DB2417242EE0E500894FA3 /* ShellScript */,
+				57DB2417242EE0E500894FA3 /* Run Script */,
 				57EE06B62435CD77001193CC /* ShellScript */,
 				575EF63D24382E27001F715A /* Embed Frameworks */,
+				57C8884B243A076500D9CE30 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -251,7 +258,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		57DB2417242EE0E500894FA3 /* ShellScript */ = {
+		57C8884B243A076500D9CE30 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "LOCATION=\"${BUILT_PRODUCTS_DIR}\"/\"${FRAMEWORKS_FOLDER_PATH}\"\necho $LOCATION\n# By default, use the configured code signing identity for the project/target\nIDENTITY=\"${EXPANDED_CODE_SIGN_IDENTITY_NAME}\"\n\necho $IDENTITY\nif [ \"$IDENTITY\" == \"\" ]\nthen\n    # If a code signing identity is not specified, use ad hoc signing\n    IDENTITY=\"-\"\nfi\n\ncodesign --verbose --force --deep -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A/Resources/AutoUpdate.app\"\ncodesign --verbose --force -o runtime --sign \"$IDENTITY\" \"$LOCATION/Sparkle.framework/Versions/A\"\n";
+		};
+		57DB2417242EE0E500894FA3 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -262,7 +286,9 @@
 				"$(SRCROOT)/Carthage/Build/Mac/Magnet.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/KeyHolder.framework",
 				"$(SRCROOT)/Carthage/Build/Mac/LoginServiceKit.framework",
+				"$(SRCROOT)/Carthage/Build/Mac/Sparkle.framework",
 			);
+			name = "Run Script";
 			outputFileListPaths = (
 			);
 			outputPaths = (
@@ -314,7 +340,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				576556D82438CA7D00B61B4D /* Base */,
-				576556DB2438CA8100B61B4D /* ja */,
+				57C8884D243A1EF700D9CE30 /* ja */,
 			);
 			name = Settings.xib;
 			sourceTree = "<group>";
@@ -472,6 +498,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TH5EXGHJTG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -483,7 +510,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.menuffy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -498,6 +525,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = TH5EXGHJTG;
 				ENABLE_HARDENED_RUNTIME = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -509,7 +537,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "tofu-kun.org.menuffy";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
