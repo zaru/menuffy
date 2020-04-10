@@ -11,16 +11,8 @@ import Cocoa
 // NSWindow だと NSTextField が active にならないので NSPanel にする
 class MenuWindow: NSPanel {
 
-    override init(contentRect: NSRect,
-                  styleMask style: NSWindow.StyleMask,
-                  backing backingStoreType: NSWindow.BackingStoreType,
-                  defer flag: Bool) {
-
-        let screenFrame = NSScreen.main!.frame
-        let menuX = screenFrame.width / 2 - 100
-        let menuY = screenFrame.height / 2 + 100
-
-        super.init(contentRect: NSRect(x: menuX, y: menuY, width: 200, height: 50),
+    init(locationX: CGFloat, locationY: CGFloat) {
+        super.init(contentRect: NSRect(x: locationX, y: locationY, width: 200, height: 50),
                    styleMask: [.nonactivatingPanel],
                    backing: .buffered,
                    defer: false)
@@ -31,7 +23,6 @@ class MenuWindow: NSPanel {
         self.makeKeyAndOrderFront(nil)
         self.collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         self.level = NSWindow.Level.floating
-
     }
 
     override var canBecomeKey: Bool {

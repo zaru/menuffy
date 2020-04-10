@@ -64,7 +64,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         let app = activeApp()
         let pid = app.processIdentifier
 
-        menuWindow = MenuWindow()
+        let location = NSEvent.mouseLocation
+        menuWindow = MenuWindow(locationX: location.x, locationY: location.y)
+
         menuView = MenuView()
         menuView.appMenu.delegate = self
         menuWindow.contentView?.addSubview(menuView)
