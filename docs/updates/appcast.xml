@@ -3,10 +3,10 @@
     <channel>
         <title>menuffy</title>
         <item>
-            <title>1.0.3</title>
-            <pubDate>Fri, 10 Apr 2020 14:44:59 +0900</pubDate>
+            <title>1.0.4</title>
+            <pubDate>土, 11 4月 2020 10:13:49 +0900</pubDate>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/zaru/menuffy/releases/download/v1.0.3/menuffy.dmg" sparkle:version="3" sparkle:shortVersionString="1.0.3" length="5086509" type="application/octet-stream" sparkle:edSignature="6v4yuMFvRsPIQvUOdmszpR60CWy1Y8yq+WCZRdrpRdgR8VC4F6Sa3lRGAHyzJXSkW+thSNebV9GT4SPNKGlBBw=="/>
+            <enclosure url="https://github.com/zaru/menuffy/releases/download/v1.0.4/menuffy.dmg" sparkle:version="4" sparkle:shortVersionString="1.0.4" length="5088606" type="application/octet-stream" sparkle:edSignature="tcQljulF3m/s0Z8l2+Jrf/X5xnP/g5bRp9Kvh3iL5BgEXqeSoFgwmQPqoAW4o8wg07npQx0WweQwYhhNAI9GCQ=="/>
         </item>
     </channel>
 </rss>
