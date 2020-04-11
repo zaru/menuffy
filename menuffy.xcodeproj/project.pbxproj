@@ -63,10 +63,10 @@
 		576556E52438CB3800B61B4D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/PreferenceWindow.strings; sourceTree = "<group>"; };
 		576556E92438CBBC00B61B4D /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		576556EB2438CBC100B61B4D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		577351FF24414D9F00D8EE05 /* ja */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ja; path = ja.lproj/Settings.xib; sourceTree = "<group>"; };
 		57C577122436CBC40044F5F5 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		57C577162436CBDF0044F5F5 /* ShortkeyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyViewController.swift; sourceTree = "<group>"; };
 		57C88848243A02C800D9CE30 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Sparkle.framework; path = Carthage/Build/Mac/Sparkle.framework; sourceTree = "<group>"; };
-		57C8884D243A1EF700D9CE30 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Settings.strings; sourceTree = "<group>"; };
 		57D1EEE22437FB16000E721E /* ShortkeyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortkeyManager.swift; sourceTree = "<group>"; };
 		57D1EEE624380167000E721E /* LoginServiceKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LoginServiceKit.framework; path = Carthage/Build/Mac/LoginServiceKit.framework; sourceTree = "<group>"; };
 		57D1EEEA243803B9000E721E /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
@@ -340,7 +340,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				576556D82438CA7D00B61B4D /* Base */,
-				57C8884D243A1EF700D9CE30 /* ja */,
+				577351FF24414D9F00D8EE05 /* ja */,
 			);
 			name = Settings.xib;
 			sourceTree = "<group>";
