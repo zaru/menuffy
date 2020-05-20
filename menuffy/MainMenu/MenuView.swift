@@ -12,6 +12,7 @@ class MenuView: NSView {
     var appMenu: NSMenu = NSMenu()
     private (set) public var allElements: [AXUIElement] = []
     var allMenuItems: [NSMenuItem] = []
+    var filterdMenuItems: [NSMenuItem] = []
     var menuIndex: Int = 0
     var topLevelMenuNum: Int = 0
 
@@ -27,6 +28,8 @@ class MenuView: NSView {
     }
 
     func filterMenuItem(keyword: String) {
+
+        filterdMenuItems = []
         // 検索時は既存のトップレベルメニューを隠す、空なら表示する
         let hidden = keyword == "" ? false : true
         for index in 1...topLevelMenuNum {
@@ -47,6 +50,7 @@ class MenuView: NSView {
             if item.title.localizedCaseInsensitiveContains(keyword) {
                 guard let copyItem = item.copy() as? NSMenuItem else { continue }
                 appMenu.addItem(copyItem)
+                filterdMenuItems.append(copyItem)
             }
         }
     }

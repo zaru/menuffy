@@ -131,6 +131,9 @@ extension AppDelegate: NSTextFieldDelegate {
             let source2 = CGEventSource(stateID: CGEventSourceStateID.hidSystemState)
             let downArrowEvent = CGEvent(keyboardEventSource: source2, virtualKey: 0x7d, keyDown: true)
             downArrowEvent?.post(tap: CGEventTapLocation.cghidEventTap)
+        } else if commandSelector == #selector(NSResponder.insertNewline(_:)) {
+            let menuItem = menuView.filterdMenuItems[0]
+            NSApp.sendAction(menuItem.action!, to: menuItem.target, from: menuItem)
         }
         return false
     }
