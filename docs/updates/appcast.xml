@@ -6,7 +6,7 @@
             <title>1.0.5</title>
             <pubDate>日, 24 5月 2020 10:58:46 +0900</pubDate>
             <sparkle:minimumSystemVersion>10.13</sparkle:minimumSystemVersion>
-            <enclosure url="https://zaru.github.io/menuffy/updates/menuffy.dmg" sparkle:version="5" sparkle:shortVersionString="1.0.5" length="5089115" type="application/octet-stream" sparkle:edSignature="1j+lFiHWbqVYqmGghh0I56hFyAP9yIZOaya/+Y/FHkKHNCxqGouxkedWF+wcGJn5kWHxcM1W9Zru8x4fLz4lAg=="/>
+            <enclosure url="https://github.com/zaru/menuffy/releases/download/v1.0.5/menuffy.dmg" sparkle:version="5" sparkle:shortVersionString="1.0.5" length="5089115" type="application/octet-stream" sparkle:edSignature="1j+lFiHWbqVYqmGghh0I56hFyAP9yIZOaya/+Y/FHkKHNCxqGouxkedWF+wcGJn5kWHxcM1W9Zru8x4fLz4lAg=="/>
         </item>
     </channel>
 </rss>
